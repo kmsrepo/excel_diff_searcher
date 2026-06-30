@@ -1,1 +1,26 @@
-{"scripts":{"dev":"vite --host 0.0.0.0","build":"tsc && vite build","preview":"vite preview --host 0.0.0.0","check":"tsc --noEmit && npm run build"},"dependencies":{"@vitejs/plugin-basic-ssl":"latest","xlsx-wasm-browser":"github:exsjabe/xlsx-wasm-browser#e88ef46"},"devDependencies":{"@rollup/rollup-linux-x64-gnu":"^4.62.2","@types/node":"latest","esbuild":"^0.28.1","rollup":"^4.62.2","typescript":"latest","vite":"latest","vite-plugin-singlefile":"latest","vite-plugin-top-level-await":"^1.6.0","vite-plugin-wasm":"^3.6.0"}}
+{
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "check": "tsc --noEmit && npm run build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@vitejs/plugin-basic-ssl": "latest",
+    "xlsx-wasm-browser": "github:exsjabe/xlsx-wasm-browser#e88ef46"
+  },
+  "devDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.62.2",
+    "@types/node": "latest",
+    "esbuild": "^0.28.1",
+    "jszip": "^3.10.1",
+    "rollup": "^4.62.2",
+    "typescript": "latest",
+    "vite": "latest",
+    "vite-plugin-singlefile": "latest",
+    "vite-plugin-top-level-await": "^1.6.0",
+    "vite-plugin-wasm": "^3.6.0",
+    "vitest": "^4.1.9"
+  }
+}
