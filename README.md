@@ -5,7 +5,7 @@ An offline, single-HTML Excel comparison tool with an Excel-like grid UI and sea
 ## Features
 
 - Runs fully in the browser after build; no server or network calls are needed.
-- Parses `.xlsx` files with `xlsx-wasm-parser`, a WebAssembly wrapper around Rust Calamine.
+- Parses `.xlsx` files with the external `xlsx-wasm-browser` WebAssembly parser, embedded into the single-file HTML build.
 - Compares the first worksheet of two workbooks by cell address.
 - Highlights added, removed, and changed cells in an Excel-style grid.
 - Provides searchable/filterable difference results.
