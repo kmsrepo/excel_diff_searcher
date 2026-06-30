@@ -3,3 +3,6 @@ node_modules/
 npm-debug.log*
 
 excel-diff-searcher.zip
+
+# Vite may emit standalone WASM assets during local builds; release packaging uses the inlined single HTML file.
+dist/*.wasm

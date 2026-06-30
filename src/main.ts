@@ -1,5 +1,5 @@
 import './style.css';
-import { getAllRows } from 'xlsx-wasm-parser';
+import { getAllRowsFromWasm } from './wasmParser';
 import { diffWorkbooks, filterDiffs, colName } from './diff';
 import type { DiffItem, WorkbookModel } from './types';
 
@@ -35,7 +35,7 @@ function normalize(value: unknown) {
 }
 
 async function parseFile(file: File): Promise<WorkbookModel> {
-  const rows = getAllRows(new Uint8Array(await file.arrayBuffer())).map((row) => row.map(normalize));
+  const rows = (await getAllRowsFromWasm(await file.arrayBuffer())).map((row) => row.map(normalize));
   const cells = new Map<string, ReturnType<typeof normalize>>();
   let maxCols = 0;
   rows.forEach((row, r) => {
@@ -45,10 +45,9 @@ async function parseFile(file: File): Promise<WorkbookModel> {
   return { name: file.name, rows, cells, maxRows: rows.length, maxCols } as WorkbookModel;
 }
 
-
 async function handleFile(input: HTMLInputElement, side: 'left' | 'right') {
   const file = input.files?.[0]; if (!file) return;
-  formula.value = `Parsing ${file.name} with xlsx-wasm-parser...`;
+  formula.value = `Parsing ${file.name} with xlsx-wasm-browser...`;
   const model = await parseFile(file);
   if (side === 'left') left = model; else right = model;
   compareBtn.disabled = !(left && right);
